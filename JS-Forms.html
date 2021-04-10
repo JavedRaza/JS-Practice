@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    
+    
+    <body>
+        <div class="form-class">
+         <form name="myform" method="POST" action="" onsubmit="return validateform()"> 
+         <table>
+              <tr><td>  Name : </td><td><input type="text" name = "name"></tr></td>
+              <tr><td>  Password: </td><td> <input type="password" name="password"></tr></td>
+              <tr><td>  Re-Enter Password:</td><td>  <input type="password" name="password1"></tr></td>
+              <tr><td>  Phone : </td><td>  <input type="number" name = "number"><tr><td> 
+              <tr><td>  Enter Email : </td><td>  <input type ="email" name="email"></tr></td>
+              <tr><td>       <input type="submit" value = "register"></tr></td>
+         </table>
+         </form>
+         </div>
+        <script>
+            function validateform(){
+                var name = document.myform.name.value;
+                var password = document.myform.password.value;
+                var password1 =document.myform.password1.value;
+                var email=document.myform.email.value;
+                var number = document.myform.number.value;
+                if(name==null||name==""){
+                    alert("Name can't be empty");
+                    return false;
+                }
+                else if(password.length<6){
+                    alert("Password can't be less than six characters");
+                    return false;
+                }
+                else if(password!=password1){
+                    alert("Enter same password");
+                    return false;
+                }
+                else if(number==null||number==""||number.length!=10){
+                    alert("Number not correct");
+                    return false;
+                }
+                else {
+                    var atpostion = email.indexOf("@");
+                    var dotposition = email.lastIndexOf(".");
+                    if(atposition<1||dotposition<atposition+2||dotposition+2>=email.length){
+                        alert("Invalid E-mail Id");
+                        return false;
+                    }
+
+                }
+            }
+        </script>
+       
+    </body>
+</html>

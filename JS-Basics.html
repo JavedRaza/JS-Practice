@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript typeof</h2>
+<p>The typeof operator returns object for both objects, arrays, and null.</p>
+<p>The typeof operator does not return object for functions.</p>
+
+<p id="meme">converting calcius to foreignheight</p>
+ <button onClick="document.getElementById('javed').innerHTML = Date()">This is time today:</button>
+ <p id="javed"></p>
+
+<script>
+function fun(p){
+    alert("I am Don");
+}
+var obj = {FirstName:"javed",
+            LastName:"Ahmad",
+            Age:21,
+            EyeColor:"Blue",
+            fullname:function(){ return this.FirstName + " " + this.LastName;}  
+};
+  let arr = ["javed" , "ahmad" , "Raza" , "Munsoori"];
+  var txt = "";
+  for(var i =0;i<arr.length;i++){
+    txt += " " +  arr[i] + "</br>";
+    console.log(txt);
+    
+  }
+  let str = "JAVED_AHMAD";
+  let ans ="";
+  for(i of str){
+    ans += i + "</br>";
+  }
+   txt = "";
+   i =0;
+  do{
+    txt += i + " ";
+    i++;
+  }while(i<19);
+  document.getElementById("javed").innerHTML = txt;
+
+  document.getElementById("meme").innerHTML = obj.fullname();
+ 
+</script>
+
+</body>
+</html>
+
+
