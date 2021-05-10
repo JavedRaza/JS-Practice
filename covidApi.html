@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Covid</title>
+ </head>
+ <body>
+ 	<label>Enter Country code (min-0 and max-189) (76 for india) :</label>
+ 	<input type="number" id="all" max="189" min="0">
+ 	<input type="button" value="Search" onclick="getcovid()">
+ 	 <h2 id="india"></h2>
+ 	  	<script>
+ 		
+ 	const getcovidData = (code)=>{
+ 		fetch('https://api.covid19api.com/summary')
+ 			.then((apidata)=>{
+ 				  // console.log(apidata);
+ 				return apidata.json();
+ 			}).then((japidata)=>{
+ 				  console.log(japidata.Countries);
+ 				  let mydata = japidata.Countries[code];
+ 				  console.log(mydata);
+ 				   document.getElementById("india").innerHTML= `The name of the country is ${mydata.Country} and the total number of confirmed cases are ${mydata.TotalConfirmed}
+ 				   and total number of deaths are ${mydata.TotalDeaths} `
+ 			}).catch((err)=>{
+ 				console.log(`Error is ${err}`);
+ 			})
+ 	}
+ 	const getcovid = ()=>{
+ 		const code = document.getElementById('all').value;
+ 	    // console.log(code);
+ 		getcovidData(code);
+
+ 	}
+ 	
+ 	
+ 	</script>
+ </body>
+ 
+ </html>
