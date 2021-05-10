@@ -11,42 +11,36 @@
  <p id="javed"></p>
 
 <script>
-function fun(p){
-    alert("I am Don");
-}
-var obj = {FirstName:"javed",
-            LastName:"Ahmad",
-            Age:21,
-            EyeColor:"Blue",
-            fullname:function(){ return this.FirstName + " " + this.LastName;}  
-};
-  let arr = ["javed" , "ahmad" , "Raza" , "Munsoori"];
-  var txt = "";
-  for(var i =0;i<arr.length;i++){
-    txt += " " +  arr[i] + "</br>";
-    console.log(txt);
-    
-  }
-  let str = "JAVED_AHMAD";
-  let ans ="";
-  for(i of str){
-    ans += i + "</br>";
-  }
-   txt = "";
-   i =0;
-  do{
-    txt += i + " ";
-    i++;
-  }while(i<19);
-  document.getElementById("javed").innerHTML = txt;
+	 const obj1 = new Promise((resolve , reject) =>{
+	 	setTimeout(()=>{
+	 		const arr_roll =[1,2,3,4,5,6];
+	 		resolve(arr_roll);
+	 		reject("Error ocurred");
+	 	} , 2000 )
+	 });
 
-  document.getElementById("meme").innerHTML = obj.fullname();
-
-
-// day two
-
- 
- 
+	const biodata = (rn) =>{
+		return new Promise ((resolve , reject) =>{
+			setTimeout((rn)=>{
+				let biodata={
+				name:"javed",
+				age:24
+			}
+			resolve(`my name is  ${biodata.name}  ans my age is ${biodata.age} and roll number is ${rn}`);
+			reject("An error has ocurred");
+		} ,2000 , rn)
+		})
+	}
+	 obj1.then((arr_roll)=>{
+	 	console.log(arr_roll);
+	 	biodata(arr_roll[1]).then((result)=>{
+	 		console.log(result);
+	 	}).catch((err)=>{
+	 		console.log(err);
+	 	})
+	 }).catch((err)=>{
+	 	console.log(err);
+	 })
 </script>
 
 </body>
