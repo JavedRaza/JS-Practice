@@ -31,16 +31,27 @@
 		} ,2000 , rn)
 		})
 	}
-	 obj1.then((arr_roll)=>{
-	 	console.log(arr_roll);
-	 	biodata(arr_roll[1]).then((result)=>{
-	 		console.log(result);
-	 	}).catch((err)=>{
-	 		console.log(err);
-	 	})
-	 }).catch((err)=>{
-	 	console.log(err);
-	 })
+// obj1.then((arr_roll)=>{
+// 	console.log(arr_roll);
+// 	biodata(arr_roll[1]).then((result)=>{
+// 		console.log(result);
+// 	}).catch((err)=>{
+// 		console.log(err);
+// 	})
+// }).catch((err)=>{
+// 	console.log(err);
+// })
+
+//async await....
+async function getdata(){
+	const rol_arr = await obj1;
+	console.log(rol_arr);
+	const data = await biodata(rol_arr[1]);
+	console.log(data);
+}
+getdata();
+
+
 </script>
 
 </body>
